@@ -19,7 +19,6 @@
 package org.derive4j.processor.api.model;
 
 import java.util.function.BiFunction;
-import javax.lang.model.type.ErrorType;
 import javax.lang.model.type.TypeMirror;
 import org.derive4j.Data;
 import org.derive4j.Derive;
@@ -50,9 +49,6 @@ public abstract class DataArgument {
 
   @ExportAsPublic
   static DataArgument dataArgument(String fieldName, TypeMirror type) {
-    if (type instanceof ErrorType) {
-      throw new IllegalArgumentException("Type of " + fieldName + " is not valid: " + type);
-    }
     return DataArguments.dataArgument0(fieldName, type);
   }
 }
